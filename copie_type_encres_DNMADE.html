@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copie type encres</title>
+<meta name="description" content="Exemple de note de synthèse illustrée (axe A, encres éco-responsables) réalisée selon les consignes données aux étudiants de DNMADE Graphisme, à partir de deux sources réelles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Caveat:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --desk:#e9e4da; --desk-ink:#3b3540;
+  --paper:#fffef9; --rule:#cfe0f1; --margin:#f0a3a3;
+  --pen:#1d3f8f;      /* stylo bleu */
+  --pen-2:#b4232e;    /* stylo rouge */
+  --pen-3:#2c7a3f;    /* stylo vert */
+  --pencil:#55515c;
+  --hl:#fff27a;       /* surligneur */
+  --hl-pink:#ffc2dc;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --desk:#1d1b22; --desk-ink:#e6e1ea; }
+}
+:root[data-theme="dark"]{ --desk:#1d1b22; --desk-ink:#e6e1ea; }
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--desk);color:var(--desk-ink);font-family:"Atkinson Hyperlegible",system-ui,sans-serif}
+
+.intro{max-width:210mm;margin:24px auto 0;padding:0 16px;font-size:15px;line-height:1.5}
+.intro h1{font-size:20px;margin:0 0 6px}
+.intro p{margin:4px 0}
+.intro .tags span{display:inline-block;font-size:12px;border:1px solid currentColor;border-radius:99px;padding:2px 9px;margin:6px 6px 0 0;opacity:.85}
+
+.page{
+  width:210mm;height:297mm;margin:20px auto;position:relative;overflow:hidden;
+  background:
+    linear-gradient(90deg,transparent 21mm,var(--margin) 21mm,var(--margin) calc(21mm + 1.5px),transparent calc(21mm + 1.5px)),
+    repeating-linear-gradient(180deg,transparent 0,transparent 7.2mm,var(--rule) 7.2mm,var(--rule) calc(7.2mm + 1px)) 0 18mm/100% auto no-repeat,
+    var(--paper);
+  box-shadow:0 2px 0 rgba(0,0,0,.05),0 14px 34px -14px rgba(0,0,0,.45);
+  padding:12mm 12mm 10mm 25mm;
+  font-family:"Kalam",cursive;font-weight:400;color:var(--pen);font-size:13px;line-height:1.45;
+}
+.page:nth-of-type(2){transform:rotate(.25deg)}
+.pnum{position:absolute;right:12mm;bottom:6mm;font-family:"Caveat";font-size:18px;color:var(--pencil)}
+
+.head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;font-size:13px;color:var(--pencil)}
+.head b{color:var(--pen)}
+h1.t{font-family:"Caveat";font-weight:700;font-size:35px;line-height:1;color:var(--pen-2);margin:4mm 0 0;transform:rotate(-1deg)}
+h1.t u{text-decoration-thickness:2px;text-underline-offset:5px}
+.sub{font-family:"Caveat";font-size:20px;color:var(--pencil);margin:0 0 2mm}
+h2{font-family:"Caveat";font-weight:700;font-size:25px;color:var(--pen-3);margin:2.2mm 0 0;line-height:1.1}
+h2 .n{display:inline-grid;place-items:center;width:25px;height:25px;border:2px solid currentColor;border-radius:50%;font-size:19px;margin-right:6px;transform:translateY(-2px)}
+h3{font-family:"Kalam";font-weight:700;font-size:14px;color:var(--pen-2);margin:2mm 0 0}
+p{margin:0}
+ul{margin:0;padding-left:16px}
+li{margin:0}
+li::marker{content:"→ ";color:var(--pen-2)}
+.hl{background:linear-gradient(100deg,transparent 2%,var(--hl) 4%,var(--hl) 96%,transparent 98%);padding:0 2px}
+.hlp{background:linear-gradient(100deg,transparent 2%,var(--hl-pink) 4%,var(--hl-pink) 96%,transparent 98%);padding:0 2px}
+.red{color:var(--pen-2)} .green{color:var(--pen-3)} .pencil{color:var(--pencil)}
+.small{font-size:12px}
+.ref{font-size:12px;color:var(--pencil)}
+.strike{text-decoration:line-through;text-decoration-color:var(--pen);opacity:.75}
+
+.sketch{display:block;width:100%;height:auto;margin:1mm 0}
+.sketch text{font-family:"Kalam";}
+.sk{filter:url(#wobble)}
+
+.figs{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:2mm 0 1mm}
+.fig{border:2px solid var(--pen-2);border-radius:6px 14px 8px 12px/12px 6px 14px 8px;padding:2mm 2mm 1.5mm;text-align:center;background:rgba(255,242,122,.35);color:var(--pen)}
+.fig .big{font-family:"Caveat";font-weight:700;font-size:31px;line-height:1;color:var(--pen-2)}
+.fig .vs{font-size:11.5px;color:var(--pencil)}
+.fig p{font-size:12px;line-height:1.3}
+
+.two{display:grid;grid-template-columns:1.25fr 1fr;gap:5mm;align-items:start}
+.manif{border:2.5px solid var(--pen-3);border-radius:14px 6px 16px 8px/8px 16px 6px 14px;padding:2mm 4mm 3mm;margin-top:1.5mm;background:rgba(44,122,63,.04)}
+.manif ol{margin:0;padding-left:18px}
+.slogan{font-family:"Caveat";font-weight:700;font-size:30px;color:var(--pen-2);text-align:center;margin:2mm 0 0;transform:rotate(-1.2deg)}
+.biblio p{margin-top:1mm;font-size:12px;line-height:1.38}
+.stars{color:var(--pen-2);letter-spacing:1px}
+.note-marge{position:absolute;left:3mm;width:16mm;font-family:"Caveat";font-size:15px;line-height:1;color:var(--pen-2);transform:rotate(-8deg);text-align:center}
+
+.theme-btn{position:fixed;right:14px;bottom:14px;z-index:6;border:1.5px solid var(--desk-ink);background:var(--desk);color:var(--desk-ink);border-radius:999px;padding:8px 12px;font:inherit;font-size:13px;cursor:pointer}
+
+@media (max-width:840px){
+  .page{width:auto;height:auto;margin:16px;padding:8mm 6mm 12mm 12mm;background:var(--paper)}
+  .page:nth-of-type(2){transform:none}
+  .figs,.two{grid-template-columns:1fr}
+  .note-marge{display:none}
+}
+@media print{
+  @page{size:A4;margin:0}
+  body{background:#fff}
+  .intro,.theme-btn{display:none}
+  .page{margin:0;box-shadow:none;transform:none!important;page-break-after:always;break-after:page}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="wobble"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter>
+</svg>
+
+<div class="intro">
+  <h1>Copie type : note de synthèse illustrée</h1>
+  <p>Ceci est un exemple de rendu réalisé selon les consignes de l'activité « Encres éco-responsables », sur l'axe A. Les deux sources sont <strong>réelles et vérifiables</strong>, et les données citées en proviennent. L'étudiante est fictive. Le rendu attendu est manuscrit : la police « écriture » imite ici une copie photographiée. Pour imprimer : A4, sans marges.</p>
+  <div class="tags"><span>Axe A</span><span>6 blocs</span><span>2 pages A4</span><span>Sources : J. Chem. Educ. 2023 + AIChE/NSF 2019</span></div>
+</div>
+
+<!-- =============================== PAGE 1 =============================== -->
+<section class="page" aria-label="Page 1">
+  <div class="head">
+    <div><b>MARTIN Inès</b> · DNMADE 1 Graphisme<br>Physique-Chimie · 05/11/2026</div>
+    <div style="text-align:right">Axe <b>A</b> : encres éco-responsables</div>
+  </div>
+
+  <h1 class="t"><u>Du chou rouge au noir d'algue</u> : des encres qui poussent ?</h1>
+
+  <h2><span class="n">1</span>Problématique</h2>
+  <p>La plupart des encres d'imprimerie utilisent des pigments et des solvants <span class="hl">issus du pétrole</span>. Le noir, la couleur la plus imprimée, est surtout du « noir de carbone », obtenu en brûlant mal des produits pétroliers lourds.
+  <br><span class="red">→ Peut-on remplacer ces matières par des colorants végétaux ou des pigments d'algues, sans perdre ce qu'on attend d'une encre (couleur, tenue, impression) ?</span></p>
+
+  <h2><span class="n">2</span>Ce que disent mes sources</h2>
+  <h3>Source [1] : une encre invisible au chou rouge (article de chimie)</h3>
+  <ul>
+    <li>Les <span class="hl">anthocyanes</span> du chou sont extraites dans l'alcool isopropylique (3 h → extrait violet, pH 7) ou dans de l'acide acétique à 4 % (1 h → extrait rouge, pH 2,5 à 3).</li>
+    <li>On ajoute du <b>métabisulfite de sodium</b> (1 g dans 10 mL d'eau) goutte à goutte → l'extrait devient <b>incolore</b>. Pourquoi ? L'ion hydrogénosulfite se fixe sur la molécule colorée (ion flavylium) : la chaîne de <span class="hl">liaisons conjuguées est coupée</span>, la molécule n'absorbe plus dans le visible, donc plus de couleur.</li>
+    <li>On écrit au pinceau avec ce liquide. Pour révéler : <span class="hlp">acide citrique 10 %</span> → texte rose-rouge (la réaction s'inverse), ou <span class="hlp">alun 10 %</span> → texte bleu-violet (les ions Al³⁺ forment un complexe avec l'anthocyane, comme un <b>mordant</b>).</li>
+  </ul>
+
+  <svg class="sketch" viewBox="0 0 640 175" role="img" aria-label="Schéma : extrait de chou violet, ajout de métabisulfite, encre incolore, écriture invisible, révélation en rose par l'acide citrique ou en bleu-violet par l'alun">
+    <g class="sk" stroke="#1d3f8f" stroke-width="2" fill="none" stroke-linecap="round">
+      <!-- tube violet -->
+      <path d="M40 22 v86 a14 14 0 0 0 28 0 v-86"/><path d="M42 58 v50 a12 12 0 0 0 24 0 v-50z" fill="#7d3f99" stroke="none"/>
+      <path d="M78 75 h56"/><path d="M128 69 l8 6 -8 6"/>
+      <!-- tube incolore -->
+      <path d="M150 22 v86 a14 14 0 0 0 28 0 v-86"/><path d="M152 58 v50 a12 12 0 0 0 24 0 v-50z" fill="#f6efd2" stroke="none"/>
+      <path d="M188 75 h52"/><path d="M234 69 l8 6 -8 6"/>
+      <!-- feuille invisible -->
+      <path d="M255 40 h90 v72 h-90z" fill="#fff"/>
+      <path d="M268 70 h62 M268 86 h46" stroke-dasharray="3 5" stroke="#9aa"/>
+      <!-- flèches vers révélations -->
+      <path d="M352 62 q40 -30 90 -32"/><path d="M436 24 l8 6 -9 4"/>
+      <path d="M352 92 q40 30 90 32"/><path d="M435 120 l9 4 -8 6"/>
+      <path d="M455 6 h90 v52 h-90z" fill="#fff"/>
+      <path d="M455 104 h90 v52 h-90z" fill="#fff"/>
+    </g>
+    <text x="54" y="148" text-anchor="middle" font-size="13" fill="#1d3f8f">extrait</text>
+    <text x="106" y="12" text-anchor="middle" font-size="11" fill="#b4232e">+ métabisulfite</text><path d="M106 16 v50" stroke="#b4232e" stroke-width="1" stroke-dasharray="2 3"/>
+    <text x="164" y="148" text-anchor="middle" font-size="12" fill="#1d3f8f">« encre » incolore</text>
+    <text x="214" y="66" text-anchor="middle" font-size="11" fill="#1d3f8f">j'écris</text>
+    <text x="300" y="130" text-anchor="middle" font-size="12" fill="#55515c">message invisible</text>
+    <text x="500" y="38" text-anchor="middle" font-size="22" fill="#d63d6b" font-family="Caveat" font-weight="700">Secret</text>
+    <text x="500" y="136" text-anchor="middle" font-size="22" fill="#5a4aa6" font-family="Caveat" font-weight="700">Secret</text>
+    <text x="390" y="22" text-anchor="middle" font-size="11" fill="#b4232e">+ acide citrique</text>
+    <text x="390" y="150" text-anchor="middle" font-size="11" fill="#b4232e">+ alun (Al³⁺)</text>
+    <text x="552" y="36" font-size="11" fill="#55515c">rose</text>
+    <text x="552" y="134" font-size="11" fill="#55515c">bleu-violet</text>
+    <text x="0" y="170" font-size="11" fill="#2c7a3f">liaisons conjuguées coupées = plus de couleur</text>
+  </svg>
+
+  <ul>
+    <li>Point surprenant : ça marche sur <b>papier filtre</b> mais pas sur papier d'imprimante, « pas assez absorbant ». Le support compte autant que l'encre (voir schéma page 2).</li>
+  </ul>
+
+  <h3>Source [2] : Living Ink, un noir fait avec des algues (dossier industriel)</h3>
+  <ul>
+    <li><b>Living Ink Technologies</b> (Colorado, USA) récupère des déchets de l'industrie des algues pour en faire un pigment noir qui remplace le noir de carbone.</li>
+    <li>Le noir de carbone : <span class="hl">combustion incomplète de pétrole lourd</span>, environ 14 millions de tonnes par an, classé <b>« cancérogène possible »</b> (CIRC, groupe 2B).</li>
+    <li>Une encre, c'est environ <b>80 % de « base »</b> (liant + solvant : eau, huile de soja, pétrole…) + <b>20 % de pigment</b>. Les particules d'algue sont broyées jusqu'à ~300 nm, car l'offset et la flexo exigent des pigments de 1 µm maximum.</li>
+  </ul>
+
+  <svg class="sketch" viewBox="0 0 640 128" role="img" aria-label="Schéma comparatif : le pétrole donne du noir de carbone en émettant du CO2 ; les algues captent du CO2 et donnent un noir d'algue ; les deux passent sur la même presse">
+    <g class="sk" stroke-width="2" fill="none" stroke-linecap="round">
+      <!-- ligne pétrole -->
+      <path d="M18 20 h70 v28 h-70z" stroke="#55515c"/>
+      <path d="M96 34 h64" stroke="#55515c"/><path d="M154 28 l8 6 -8 6" stroke="#55515c"/>
+      <path d="M180 44 q-8 -14 4 -24 q-2 10 8 12 q4 -10 -2 -16 q16 8 10 26 q-6 8 -20 2z" stroke="#b4232e" fill="#ffd2b0"/>
+      <path d="M214 34 h64" stroke="#55515c"/><path d="M272 28 l8 6 -8 6" stroke="#55515c"/>
+      <circle cx="306" cy="34" r="15" fill="#222" stroke="#222"/>
+      <path d="M200 16 v-12" stroke="#b4232e" stroke-width="3"/><path d="M194 9 l6 -7 6 7" stroke="#b4232e" stroke-width="3"/>
+      <!-- ligne algues -->
+      <path d="M20 104 q6 -26 0 -40 M30 104 q-6 -22 4 -36 M40 104 q8 -24 0 -40" stroke="#2c7a3f" stroke-width="3"/>
+      <circle cx="70" cy="70" r="9" stroke="#c99a1f"/><path d="M70 54 v-6 M84 70 h6 M56 70 h-6 M80 60 l4 -4 M60 60 l-4 -4" stroke="#c99a1f"/>
+      <path d="M96 88 h64" stroke="#55515c"/><path d="M154 82 l8 6 -8 6" stroke="#55515c"/>
+      <path d="M170 76 h44 v24 h-44z" stroke="#2c7a3f"/>
+      <path d="M220 88 h58" stroke="#55515c"/><path d="M272 82 l8 6 -8 6" stroke="#55515c"/>
+      <circle cx="306" cy="88" r="15" fill="#1c241c" stroke="#1c241c"/>
+      <path d="M118 112 v10" stroke="#2c7a3f" stroke-width="3"/><path d="M112 117 l6 7 6 -7" stroke="#2c7a3f" stroke-width="3"/>
+      <!-- presse commune -->
+      <path d="M330 38 q40 6 60 22" stroke="#55515c"/><path d="M330 86 q40 -6 60 -22" stroke="#55515c"/>
+      <path d="M398 42 h86 v40 h-86z" stroke="#1d3f8f"/><circle cx="420" cy="62" r="10" stroke="#1d3f8f"/><circle cx="462" cy="62" r="10" stroke="#1d3f8f"/>
+      <path d="M392 94 h100" stroke="#1d3f8f" stroke-width="3"/>
+    </g>
+    <text x="53" y="38" text-anchor="middle" font-size="12" fill="#55515c">pétrole</text>
+    <text x="210" y="14" font-size="12" fill="#b4232e" font-weight="700">+3,75 kg CO₂ / kg</text>
+    <text x="306" y="64" text-anchor="middle" font-size="11" fill="#1d3f8f">noir de carbone</text>
+    <text x="192" y="92" text-anchor="middle" font-size="10.5" fill="#2c7a3f">déchets</text>
+    <text x="128" y="124" font-size="12" fill="#2c7a3f" font-weight="700">capte du CO₂</text>
+    <text x="306" y="118" text-anchor="middle" font-size="11" fill="#1d3f8f">noir d'algue ~300 nm</text>
+    <text x="441" y="112" text-anchor="middle" font-size="12" fill="#1d3f8f">même presse !</text>
+    <text x="500" y="50" font-size="18" fill="#b4232e" font-family="Caveat" font-weight="700">Bilan annoncé :</text>
+    <text x="500" y="72" font-size="13" fill="#b4232e">−1,68 kg CO₂</text>
+    <text x="500" y="88" font-size="12" fill="#55515c">par kg de pigment</text>
+    <text x="500" y="104" font-size="12" fill="#55515c">(selon l'entreprise)</text>
+  </svg>
+
+  <ul>
+    <li>En 2026, une encre noire UV pour la flexographie, faite avec ce pigment, imprime déjà les étiquettes d'une marque d'eau, <b>sans changer les machines</b>.</li>
+  </ul>
+  <span class="pnum">1/2</span>
+</section>
+
+<!-- =============================== PAGE 2 =============================== -->
+<section class="page" aria-label="Page 2">
+  <h2 style="margin-top:0"><span class="n">3</span>Chiffres clés</h2>
+  <div class="figs">
+    <div class="fig">
+      <div class="big">−1,68 kg</div>
+      <p>de CO₂ <b>stocké</b> par kg de noir d'algue</p>
+      <div class="vs">contre <b class="red">+3,75 kg</b> émis par kg de noir de carbone <i>[2]</i></div>
+    </div>
+    <div class="fig">
+      <div class="big">300 nm</div>
+      <p>taille des grains de pigment d'algue</p>
+      <div class="vs">l'offset et la flexo exigent 1 µm maximum <i>[2]</i></div>
+    </div>
+    <div class="fig">
+      <div class="big">10 %</div>
+      <p>acide citrique ou alun pour <b>révéler</b> l'encre invisible</p>
+      <div class="vs">blanchiment : 1 g de métabisulfite pour 10 mL <i>[1]</i></div>
+    </div>
+  </div>
+
+  <div class="two">
+    <div>
+      <h2><span class="n">4</span>Regard critique</h2>
+      <ul class="small">
+        <li><b>[1]</b> est un article pour <b>enseigner</b> la chimie : protocole précis, mais <span class="hl">aucun test de tenue à la lumière</span> ni dans le temps. Les anthocyanes sont fragiles : ce n'est pas encore une encre d'impression.</li>
+        <li>Le procédé dégage du <b>SO₂</b> (dioxyde de soufre) : il faut aérer, et c'est gênant pour les asthmatiques. <span class="red">« Naturel » ≠ sans danger !</span></li>
+        <li><b>[2]</b> : les chiffres de CO₂ viennent de l'entreprise elle-même, dans un article de promotion. Aucun labo indépendant ne les a vérifiés.</li>
+        <li><span class="hlp">Contradiction</span> : en 2019, « les cellules d'algue servent directement de pigment, sans extraction ». En 2026, la biomasse est <b>pyrolysée</b> (chauffée sans oxygène). Le bilan de −1,68 kg est-il encore vrai ? <span class="red">À vérifier.</span></li>
+        <li>Le liant de l'encre UV n'est pas décrit. Un pigment biosourcé dans un liant <span class="strike">naturel</span> peut-être pétrosourcé, est-ce vraiment éco-responsable ?</li>
+        <li>Échelle : production pilote de 75 000 livres par an (≈ 34 t), contre 14 millions de t de noir de carbone. C'est encore marginal.</li>
+      </ul>
+    </div>
+    <div>
+      <svg class="sketch" viewBox="0 0 300 250" role="img" aria-label="Schéma : sur papier filtre, l'encre pénètre entre les fibres ; sur papier d'imprimante encollé, la goutte reste en surface">
+        <text x="150" y="18" text-anchor="middle" font-size="20" fill="#2c7a3f" font-family="Caveat" font-weight="700">Pourquoi le papier compte</text>
+        <g class="sk" stroke-width="2" fill="none" stroke-linecap="round">
+          <!-- papier filtre -->
+          <path d="M20 92 q20 -6 40 0 q20 6 40 0 q20 -6 40 0 q20 6 40 0 q20 -6 40 0 q20 6 40 0" stroke="#55515c"/>
+          <path d="M30 100 l30 14 M70 98 l-20 18 M100 100 l26 12 M140 98 l-22 18 M180 100 l24 14 M220 98 l-24 18 M250 100 l20 12" stroke="#c9b48a"/>
+          <path d="M120 92 q30 -26 60 0z" fill="#7d3f99" stroke="#7d3f99" opacity=".75"/>
+          <path d="M118 96 q32 30 64 0" fill="#7d3f99" stroke="none" opacity=".35"/>
+          <!-- papier imprimante -->
+          <path d="M20 200 h260" stroke="#55515c"/>
+          <path d="M20 205 h260" stroke="#9fb7d6" stroke-width="5" opacity=".7"/>
+          <path d="M122 200 a28 32 0 1 1 56 0z" fill="#7d3f99" stroke="#7d3f99" opacity=".75"/>
+          <path d="M178 200 l18 -16" stroke="#b4232e"/><path d="M190 200 a10 10 0 0 0 -2 -9" stroke="#b4232e"/>
+        </g>
+        <text x="20" y="62" font-size="13" fill="#1d3f8f">papier filtre : fibres lâches</text>
+        <text x="20" y="134" font-size="12" fill="#2c7a3f">l'encre pénètre entre les fibres</text>
+        <text x="20" y="150" font-size="12" fill="#2c7a3f">→ le pigment est fixé ✔</text>
+        <text x="20" y="160" font-size="11" fill="#55515c"></text>
+        <text x="20" y="226" font-size="13" fill="#1d3f8f">papier d'imprimante : encollé</text>
+        <text x="20" y="242" font-size="12" fill="#b4232e">la goutte reste en surface ✘ (θ grand)</text>
+      </svg>
+    </div>
+  </div>
+
+  <h2><span class="n">5</span>Pour un manifeste…</h2>
+  <div class="manif">
+    <ol>
+      <li><b>Le noir peut pousser au lieu d'être pompé.</b> Un pigment d'algue s'imprime sur les mêmes machines et, d'après le fabricant, stocke du CO₂ au lieu d'en émettre (+3,75 kg → −1,68 kg).</li>
+      <li><b>L'instabilité est un outil graphique.</b> L'anthocyane change de couleur avec le pH : au lieu de la cacher, on peut faire des messages révélés, des affiches qui virent au rose ou au bleu.</li>
+      <li><b>L'encre et le papier forment un couple.</b> Une encre végétale se fixe mieux sur un papier absorbant non couché : éco-concevoir, c'est choisir les deux ensemble.</li>
+    </ol>
+    <div class="slogan">« L'encre pousse, elle ne se pompe pas. »</div>
+  </div>
+
+  <h2><span class="n">6</span>Bibliographie critique</h2>
+  <div class="biblio">
+    <p><b>[1]</b> KEILLER, L., PATTERSON, I. L. J., STEWART, D. &amp; SMELLIE, I. (2023). A Simple and Inexpensive Invisible Ink System Based on Red Cabbage Extracts. <i>Journal of Chemical Education</i>, 100(3), 1398-1403. DOI : 10.1021/acs.jchemed.2c01032 <span class="stars">★★★★☆</span><br>
+    <span class="green">→ Fiable : revue scientifique à comité de lecture, chimistes universitaires, protocole chiffré et reproductible. Limite : article pédagogique, pas d'étude de durabilité.</span></p>
+    <p><b>[2]</b> AIChE / NSF. (2019). Catalyzing Commercialization: Engineering Algae Cells for Biobased and Renewable Pigments. <i>Chemical Engineering Progress</i>, août 2019. aiche.org/resources/publications/cep/2019/august (consulté le 05/11/2026) <span class="stars">★★★☆☆</span><br>
+    <span class="green">→ Source institutionnelle avec des chiffres précis, mais texte promotionnel : les données viennent de l'entreprise. Recoupé avec <i>Packaging Insights</i> (27/03/2026), qui confirme l'usage industriel mais décrit un autre procédé.</span></p>
+  </div>
+  <span class="pnum">2/2</span>
+</section>
+
+<button class="theme-btn" id="themeBtn" type="button" aria-label="Changer de thème">◐</button>
+<script>
+(function(){
+  var root=document.documentElement;
+  document.getElementById("themeBtn").addEventListener("click",function(){
+    var cur=root.getAttribute("data-theme");
+    var dark=cur?cur==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;
+    root.setAttribute("data-theme",dark?"light":"dark");
+  });
+})();
+</script>
+</body>
+</html>
